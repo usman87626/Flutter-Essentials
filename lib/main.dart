@@ -13,33 +13,43 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text("Awesome App"),
-      ),
-      body: Container(
-        child: Center(
-            child: Container(
-          padding: EdgeInsets.all(18.0),
-          alignment: Alignment.center,
-          height: 100,
-          width: 100,
-          decoration: BoxDecoration(
-              // shape: BoxShape.circle,
-              borderRadius: BorderRadius.circular(10),
-              boxShadow: [
-                BoxShadow(
-                    color: Colors.grey,
-                    blurRadius: 5,
-                    offset: Offset(12.0, 15.0))
-              ],
-              color: Colors.teal,
-              gradient: LinearGradient(colors: [Colors.yellow, Colors.pink])),
-          child: Text(
-            "Flutter Container",
-            style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+        appBar: AppBar(
+          title: Text("Awesome App"),
+        ),
+        body: Container(
+          width: MediaQuery.of(context).size.width,
+          height: MediaQuery.of(context).size.height,
+          color: Colors.black,
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Container(
+                  child: Container(
+                padding: EdgeInsets.all(18.0),
+                alignment: Alignment.center,
+                height: 100,
+                width: 100,
+                color: Colors.red,
+              )),
+              Container(
+                  child: Container(
+                padding: EdgeInsets.all(18.0),
+                alignment: Alignment.center,
+                height: 100,
+                width: 100,
+                color: Colors.blue,
+              )),
+              Container(
+                  child: Container(
+                padding: EdgeInsets.all(18.0),
+                alignment: Alignment.center,
+                height: 100,
+                width: 100,
+                color: Colors.green,
+              )),
+            ],
           ),
-        )),
-      ),
-    );
+        ));
   }
 }
