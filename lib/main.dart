@@ -10,16 +10,59 @@ void main() {
   ));
 }
 
-class HomePage extends StatelessWidget {
-  const HomePage({Key? key}) : super(key: key);
+class HomePage extends StatefulWidget {
+  @override
+  _HomePageState createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  var myText = "Change Me";
+  TextEditingController _nameController = TextEditingController();
+
+  @override
+  void initState() {
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.grey,
       appBar: AppBar(
         title: Text("Application With Drawer"),
       ),
-      body: Container(),
+      body: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: SingleChildScrollView(
+          child: Card(
+            child: Column(
+              children: [
+                Image.asset(
+                  'assets/girl.jpeg',
+                  fit: BoxFit.cover,
+                  colorBlendMode: BlendMode.darken,
+                ),
+                SizedBox(height: 20),
+                Text(
+                  myText,
+                  style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
+                ),
+                SizedBox(height: 20),
+                Padding(
+                  padding: const EdgeInsets.all(16.0),
+                  child: TextField(
+                    controller: _nameController,
+                    decoration: InputDecoration(
+                        border: OutlineInputBorder(),
+                        hintText: "Enter Something Here",
+                        labelText: "Input Field"),
+                  ),
+                )
+              ],
+            ),
+          ),
+        ),
+      ),
       drawer: Drawer(
         child: ListView(
           padding: EdgeInsets.zero,
@@ -60,7 +103,10 @@ class HomePage extends StatelessWidget {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () {},
+        onPressed: () {
+          myText = _nameController.text;
+          setState(() {});
+        },
         child: Icon(Icons.refresh),
       ),
     );
