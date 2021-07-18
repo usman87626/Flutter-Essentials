@@ -32,7 +32,7 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       backgroundColor: Colors.grey[200],
       appBar: AppBar(
-        title: Text("Application With Drawer"),
+        title: Text("Getting Data from API"),
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
